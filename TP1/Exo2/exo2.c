@@ -31,10 +31,13 @@ int main(void)
     int processus2 = fork();
     int error2;
 
+    char* argument[] = {"fils2", "42", NULL};
+
     switch (processus2)
     {
       case 0:
-        error2 = execl("./fils2", "fils2", "42", NULL);
+        //error2 = execl("./fils2", "fils2", "42", NULL);
+        error2 = execvp("./fils2", argument);
         if(error2 == -1)
         {
           perror("Error execl fils2");
